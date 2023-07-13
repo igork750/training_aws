@@ -26,15 +26,15 @@ module "vpc" {
 }
 
 # Create a database server
-#resource "aws_db_instance" "default" {
-#  allocated_storage = 5
-#  #  name              = "initial_db"
-#  engine         = "mysql"
-#  engine_version = "8.0.28"
-#  instance_class = "db.t3.micro"
-#  username       = "test_user"
-#  password       = "test_pass"
-#}
+resource "aws_db_instance" "default" {
+  allocated_storage = 5
+  engine         = "mysql"
+  engine_version = "8.0.28"
+  instance_class = "db.t3.micro"
+  username       = "test_user"
+  password       = "test_pass"
+  skip_final_snapshot  = true
+}
 
 # Create a Network Load Balancer
 resource "aws_lb" "NLB17" {
